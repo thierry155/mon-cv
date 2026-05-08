@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Thierry NIYOMUKIZA | CV Étudiant en Génie Informatique</title>
+    <!-- Font Awesome 6 (icones minimales) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts : Inter pour une typographie claire -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #edf2f8 0%, #dfe8f0 100%);
+            font-family: 'Inter', sans-serif;
+            color: #1e2f3c;
+            line-height: 1.5;
+            padding: 1rem;
+        }
+
+        /* Carte principale responsive */
+        .main-card {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Photo en haut centrée */
+        .photo-top {
+            background: linear-gradient(105deg, #0f3348 0%, #1a577b 100%);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .photo-wrapper {
+            display: inline-block;
+            border-radius: 50%;
+            background: white;
+            padding: 0.4rem;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+            transition: transform 0.25s ease;
+        }
+
+        .photo-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            background: #e9b56e;
+        }
+
+        /* Titre principal et texte d'accueil */
+        .welcome-text {
+            margin-top: 1.6rem;
+            color: white;
+        }
+
+        .welcome-text h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.8rem;
+            word-break: break-word;
+        }
+
+        .welcome-text p {
+            font-size: 1rem;
+            max-width: 750px;
+            margin: 0 auto;
+            opacity: 0.95;
+            background: rgba(255,255,255,0.1);
+            padding: 0.8rem 1.4rem;
+            border-radius: 2rem;
+            backdrop-filter: blur(2px);
+        }
+
+        /* Grille responsive des 4 sections */
+        .sections-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+            padding: 2rem;
+            background: #ffffff;
+        }
+
+        /* Cartes */
+        .info-card {
+            background: #fefefe;
+            border-radius: 1.3rem;
+            border: 1px solid #eaf0f6;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 28px -10px rgba(0, 0, 0, 0.12);
+            border-color: #ffcf9a;
+        }
+
+        .card-title {
+            background: #fafcff;
+            padding: 1rem 1.2rem;
+            border-bottom: 2px solid #f0bc7a;
+        }
+
+        .card-title h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1f506e;
+            letter-spacing: -0.2px;
+            word-break: break-word;
+        }
+
+        .card-content {
+            padding: 1.2rem 1.2rem 1.5rem 1.2rem;
+            flex: 1;
+        }
+
+        /* Structure unifiée pour compétences et diplômes (ligne verticale) */
+        .unified-item {
+            margin-bottom: 1rem;
+            border-left: 3px solid #f0bc7a;
+            padding-left: 0.8rem;
+            transition: transform 0.15s;
+        }
+
+        .unified-item strong {
+            font-weight: 700;
+            color: #1a5f82;
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .unified-desc {
+            font-size: 0.9rem;
+            color: #2c5a74;
+            line-height: 1.4;
+            word-break: break-word;
+        }
+
+        /* Contact lines */
+        .contact-line {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            background: #f9fbfd;
+            padding: 0.7rem 1rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ecf3f8;
+            flex-wrap: wrap;
+        }
+
+        .contact-icon {
+            width: 2rem;
+            text-align: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-detail {
+            flex: 1;
+            min-width: 150px;
+            word-break: break-word;
+        }
+
+        .copy-button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+            color: #d97a1c;
+            font-family: inherit;
+            padding: 0.2rem 0.4rem;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .copy-button:hover {
+            text-decoration: underline;
+            color: #b55d12;
+            background: rgba(0,0,0,0.03);
+        }
+
+        .footer-note {
+            background: #f2f7fc;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: #2c627f;
+            border-top: 1px solid #e2edf5;
+        }
+
+        /* Toast notification */
+        .toast-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1f5e7e;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 1200;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            white-space: nowrap;
+            max-width: 90vw;
+            white-space: normal;
+            text-align: center;
+        }
+
+        .toast-message.show {
+            opacity: 1;
+        }
+
+        /* ========== RESPONSIVE BREAKPOINTS ========== */
+        @media (max-width: 950px) {
+            .sections-container {
+                gap: 1.2rem;
+                padding: 1.5rem;
+            }
+            .card-title h2 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 780px) {
+            body {
+                padding: 0.8rem;
+            }
+            .sections-container {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+                padding: 1.2rem;
+            }
+            .photo-top {
+                padding: 1.5rem;
+            }
+            .welcome-text h1 {
+                font-size: 1.6rem;
+            }
+            .welcome-text p {
+                font-size: 0.9rem;
+                padding: 0.7rem 1rem;
+            }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            .card-content {
+                padding: 1rem;
+            }
+            .unified-item strong {
+                font-size: 0.9rem;
+            }
+            .unified-desc {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-card {
+                border-radius: 1.2rem;
+            }
+            .contact-line {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .contact-icon {
+                width: auto;
+            }
+            .toast-message {
+                white-space: normal;
+                font-size: 0.7rem;
+                padding: 0.5rem 1rem;
+            }
+            .card-title {
+                padding: 0.8rem 1rem;
+            }
+            .card-title h2 {
+                font-size: 1.2rem;
+            }
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            .welcome-text h1 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* petits réglages pour très grands écrans */
+        @media (min-width: 1600px) {
+            .main-card {
+                max-width: 1400px;
+            }
+            .sections-container {
+                gap: 2rem;
+                padding: 2.5rem;
+            }
+            .welcome-text p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <!-- PHOTO EN HAUT (centrée) + texte Bonjour -->
+    <div class="photo-top">
+        <div class="photo-wrapper">
+            <img class="profile-img" 
+                 src="imag.jpg" 
+                 alt="Photo de Thierry NIYOMUKIZA"
+                 onerror="this.onerror=null; this.src='https://via.placeholder.com/150/FFB74D/ffffff?text=TN';">
+        </div>
+        <div class="welcome-text">
+            <h1>Bonjour, je suis Thierry NIYOMUKIZA</h1>
+            <p>Jeune Burundais passionné, curieux et motivé par les nouvelles technologies. Étudiant en génie informatique, je suis toujours prêt à apprendre et à relever des défis.</p>
+        </div>
+    </div>
+
+    <!-- GRILLE DES 4 SOUS-TITRES (partie 2 structurée comme partie 3) -->
+    <div class="sections-container">
+        
+        <!-- 1. A PROPOS DE MOI -->
+        <div class="info-card">
+            <div class="card-title">
+                <h2>1. A propos de moi</h2>
+            </div>
+            <div class="card-content">
+                <div class="unified-item">
+                    <strong>Nationalité</strong>
+                    <div class="unified-desc">Burundaise</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Ville</strong>
+                    <div class="unified-desc">Bujumbura</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Adresse</strong>
+                    <div class="unified-desc">Mutanga Nord</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Âge</strong>
+                    <div class="unified-desc">22 ans</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Métier / Statut</strong>
+                    <div class="unified-desc">Étudiant en Génie Informatique bac3</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 2. MES COMPETENCES (structure identique à la partie 3) -->
+        <div class="info-card">
+            <div class="card-title">
+                <h2>2. Mes compétences</h2>
+            </div>
+            <div class="card-content">
+                <div class="unified-item">
+                    <strong>Développement web</strong>
+                    <div class="unified-desc">HTML, CSS, JavaScript</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Programmation</strong>
+                    <div class="unified-desc">C, C++, Java</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Bases de données</strong>
+                    <div class="unified-desc">Notions</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Pack Office</strong>
+                    <div class="unified-desc">Word, Excel, PowerPoint (niveau intermédiaire)</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Navigation internet avancée & IA</strong>
+                    <div class="unified-desc">Utilisation des intelligences artificielles</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Résolution de problèmes & créativité</strong>
+                    <div class="unified-desc">Approche analytique et innovation</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3. MES DIPLOMES & CERTIFICATS -->
+        <div class="info-card">
+            <div class="card-title">
+                <h2>3. Mes diplômes & certificats</h2>
+            </div>
+            <div class="card-content">
+                <div class="unified-item">
+                    <strong>Diplôme d’État de fin des études post-fondamentales</strong>
+                    <div class="unified-desc">Lycée d’Excellence de Makamba</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Certificat de fin des études post-fondamentales</strong>
+                    <div class="unified-desc">Enseignement secondaire général</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Certificat Highlife en Excel, Word et PowerPoint</strong>
+                    <div class="unified-desc">Formation bureautique certifiée</div>
+                </div>
+                <div class="unified-item">
+                    <strong>Étudiant en cours</strong>
+                    <div class="unified-desc">Institut de Technologie Numérique, Université du Burundi</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 4. ME CONTACTER -->
+        <div class="info-card">
+            <div class="card-title">
+                <h2>4. Me contacter</h2>
+            </div>
+            <div class="card-content">
+                <div class="contact-line">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-detail">
+                        <strong>WhatsApp :</strong> +257 6678 4003
+                        <button class="copy-button" data-copy="+25766784003">Copier</button>
+                        <div style="margin-top: 4px;"><a href="https://wa.me/25766784003" target="_blank" style="font-size:0.8rem; color:#1f6d93; text-decoration:none;">Envoyer un message </a></div>
+                    </div>
+                </div>
+                <div class="contact-line">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-detail">
+                        <strong>Email :</strong> thierryniyomukiza77y@gmail.com
+                        <button class="copy-button" data-copy="thierryniyomukiza77y@gmail.com">Copier</button>
+                        <div style="margin-top: 4px;"><a href="mailto:thierryniyomukiza77y@gmail.com" style="font-size:0.8rem; color:#1f6d93; text-decoration:none;">Envoyer un e-mail </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        Thierry NIYOMUKIZA · Bujumbura, Burundi · Étudiant en Génie Informatique
+    </div>
+</div>
+
+<!-- Toast pour notification de copie -->
+<div id="notificationToast" class="toast-message">Copié dans le presse-papier</div>
+
+<script>
+    // Fonction de copie robuste et responsive
+    const toast = document.getElementById('notificationToast');
+    
+    function showToastMessage(text) {
+        toast.textContent = text || "Informations copiées";
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 2000);
+    }
+
+    // Gestion des boutons copier
+    const copyBtns = document.querySelectorAll('.copy-button');
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const valueToCopy = btn.getAttribute('data-copy');
+            if (valueToCopy) {
+                navigator.clipboard.writeText(valueToCopy).then(() => {
+                    showToastMessage(`"${valueToCopy}" copié`);
+                }).catch(() => {
+                    // fallback pour navigateurs anciens
+                    const textArea = document.createElement('textarea');
+                    textArea.value = valueToCopy;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    showToastMessage("Coordonnées copiées");
+                });
+            } else {
+                showToastMessage("Impossible de copier");
+            }
+        });
+    });
+    
+    // Animation douce sur les items unifiés (compétences & diplômes)
+    const unifiedItems = document.querySelectorAll('.unified-item');
+    unifiedItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateX(3px)';
+            item.style.transition = '0.15s';
+        });
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateX(0)';
+        });
+    });
+
+    // Gestion du redimensionnement pour le confort (rien à faire - CSS gère)
+    console.log("Site responsive : partie 2 structurée comme partie 3, photo en haut, adaptation mobile");
+    
+    // Option: améliorer le clic sur les liens pour une meilleure accessibilité
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
+</script>
+</body>
+</html>
